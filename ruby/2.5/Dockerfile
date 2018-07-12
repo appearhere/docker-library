@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 AS builder
+FROM ubuntu:18.04
 MAINTAINER tech@appearhere.co.uk
 
 ENV LANG C.UTF-8
