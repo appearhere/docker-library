@@ -8,10 +8,9 @@ tags() {
   repo=${name%\/*}
   tag=${name#*\/}
 
-  branch=$(git rev-parse --abbrev-ref HEAD || git rev-parse HEAD | git branch -a --contains | sed -n 2p | cut -d'/' -f 3-)
-  tags="${branch} ${tag}"
+  tags="${TRAVIS_BRANCH} ${tag}"
 
-  [ "$branch" = "master" ] && tags="${tags} latest"
+  [ "$TRAVIS_BRANCH" = "master" ] && tags="${tags} latest"
 
   t=""
   for tag in $tags; do t="${t} $OWNER/$repo:$tag"; done
