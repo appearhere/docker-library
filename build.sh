@@ -8,10 +8,6 @@ tags() {
   repo=${name%\/*}
   tag=${name#*\/}
 
-  tags="${TRAVIS_BRANCH} ${tag}"
-
-  [ "$TRAVIS_BRANCH" = "master" ] && tags="${tags} latest"
-
   t=""
   for tag in $tags; do t="${t} $OWNER/$repo:$tag"; done
   echo "${t}"
